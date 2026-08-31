@@ -1,0 +1,83 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "goar"
+version = "1.1.0"
+description = "GOAR — autonomous CLI coding agent. Provider-agnostic. Local-first. No telemetry."
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.12"
+authors = [{ name = "GOAR", email = "goarxyz@users.noreply.github.com" }]
+maintainers = [{ name = "GOAR" }]
+keywords = [
+  "agent",
+  "cli",
+  "coding",
+  "coding-assistant",
+  "llm",
+  "goar",
+  "textual",
+  "developer-tools",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development",
+  "Topic :: Utilities",
+]
+dependencies = [
+  "textual>=1.0.0",
+  "rich>=13.7.0",
+  "pydantic>=2.7.0",
+  "pydantic-settings>=2.3.0",
+  "httpx>=0.27.0",
+  "tomli-w>=1.0.0",
+  "python-dotenv>=1.0.1",
+  "certifi>=2024.0.0",
+  "truststore>=0.9.0",
+]
+
+[project.scripts]
+goar = "goar.cli.entrypoint:main"
+
+[project.urls]
+Homepage = "https://github.com/goarxyz/goar-cli"
+Repository = "https://github.com/goarxyz/goar-cli"
+Issues = "https://github.com/goarxyz/goar-cli/issues"
+Documentation = "https://github.com/goarxyz/goar-cli#readme"
+Changelog = "https://github.com/goarxyz/goar-cli/releases"
+
+[tool.hatch.build]
+exclude = [
+  ".git",
+  ".github",
+  "tests",
+  "dist",
+  "*.pyc",
+  "__pycache__",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["goar"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"goar/assets/logo.svg" = "goar/assets/logo.svg"
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "goar",
+  "assets",
+  "README.md",
+  "LICENSE",
+  "NOTICE",
+  "pyproject.toml",
+]
