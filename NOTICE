@@ -1,0 +1,11 @@
+GOAR
+Copyright 2026 GOAR contributors
+
+This product includes software derived from Mistral Vibe
+(https://github.com/mistralai/mistral-vibe), licensed under the Apache
+License, Version 2.0. Mistral, Vibe, and related marks are trademarks of
+their respective owners and are not used as product names in this tree.
+
+GOAR ships without the upstream telemetry, identity, experiment, and
+console-auth modules. Runtime traffic goes only to the model provider
+the operator configures.
